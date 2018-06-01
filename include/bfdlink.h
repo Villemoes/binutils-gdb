@@ -348,6 +348,9 @@ struct bfd_link_info
   /* TRUE if section groups should be resolved.  */
   unsigned int resolve_section_groups: 1;
 
+  /* TRUE if SEC_MERGE sections should be merged.  */
+  unsigned int merge_sections: 1;
+
   /* Which symbols to strip.  */
   ENUM_BITFIELD (bfd_link_strip) strip : 2;
 

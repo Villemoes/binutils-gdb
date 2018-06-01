@@ -180,6 +180,9 @@ typedef struct
      in the linker script.  */
   bfd_boolean force_group_allocation;
 
+  /* If set, do merge SEC_MERGE sections even for relocatable output.  */
+  bfd_boolean force_section_merge;
+
   /* Big or little endian as set on command line.  */
   enum endian_enum endian;
 

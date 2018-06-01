@@ -390,6 +390,12 @@ main (int argc, char **argv)
   else
     link_info.resolve_section_groups = FALSE;
 
+  if (command_line.force_section_merge
+      || !bfd_link_relocatable (&link_info))
+    link_info.merge_sections = TRUE;
+  else
+    link_info.merge_sections = FALSE;
+
   if (command_line.print_output_format)
     info_msg ("%s\n", lang_get_output_target ());
 

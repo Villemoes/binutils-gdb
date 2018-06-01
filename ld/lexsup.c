@@ -115,6 +115,9 @@ static const struct ld_option ld_options[] =
   { {"force-group-allocation", no_argument, NULL,
      OPTION_FORCE_GROUP_ALLOCATION},
     '\0', NULL, N_("Force group members out of groups"), TWO_DASHES },
+  { {"force-section-merge", no_argument, NULL,
+     OPTION_FORCE_SECTION_MERGE},
+    '\0', NULL, N_("Force merge of SEC_MERGE sections"), TWO_DASHES },
   { {"entry", required_argument, NULL, 'e'},
     'e', N_("ADDRESS"), N_("Set start address"), TWO_DASHES },
   { {"export-dynamic", no_argument, NULL, OPTION_EXPORT_DYNAMIC},
@@ -777,6 +780,9 @@ parse_args (unsigned argc, char **argv)
 	  break;
 	case OPTION_FORCE_GROUP_ALLOCATION:
 	  command_line.force_group_allocation = TRUE;
+	  break;
+	case OPTION_FORCE_SECTION_MERGE:
+	  command_line.force_section_merge = TRUE;
 	  break;
 	case OPTION_DEFSYM:
 	  lex_string = optarg;

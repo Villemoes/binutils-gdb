@@ -1508,6 +1508,14 @@ change the behaviour of a relocatable link (@samp{-r}).  The script
 command @code{FORCE_GROUP_ALLOCATION} has the same
 effect. @xref{Miscellaneous Commands}.
 
+@kindex --force-section-merge
+@item --force-section-merge
+This option causes the linker to perform merging of identical constants
+in sections with the SEC_MERGE flag, in particular merging identical
+string literals.  This is the default behaviour for a final link but
+this option can be used to change the behaviour of a relocatable link
+(@samp{-r}).
+
 @cindex symbols, from command line
 @kindex --defsym=@var{symbol}=@var{exp}
 @item --defsym=@var{symbol}=@var{expression}

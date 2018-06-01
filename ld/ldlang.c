@@ -7347,15 +7347,18 @@ lang_process (void)
   /* Find any sections not attached explicitly and handle them.  */
   lang_place_orphans ();
 
-  if (!bfd_link_relocatable (&link_info))
+  if (link_info.merge_sections)
     {
-      asection *found;
-
       /* Merge SEC_MERGE sections.  This has to be done after GC of
 	 sections, so that GCed sections are not merged, but before
 	 assigning dynamic symbols, since removing whole input sections
 	 is hard then.  */
       bfd_merge_sections (link_info.output_bfd, &link_info);
+    }
+
+  if (!bfd_link_relocatable (&link_info))
+    {
+      asection *found;
 
       /* Look for a text section and set the readonly attribute in it.  */
       found = bfd_get_section_by_name (link_info.output_bfd, ".text");
